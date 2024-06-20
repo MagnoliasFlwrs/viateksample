@@ -199,4 +199,72 @@ body {
         .header .header-row1 .content .navigation .burger-btn:hover::after {
           height: 65px; }
 
+.phone-select {
+  position: relative;
+  padding: 10px 15px;
+  border-radius: 3px 3px 0 0; }
+  .phone-select.active {
+    background: #fff; }
+    .phone-select.active .ph-select {
+      display: flex;
+      gap: 10px;
+      align-items: center; }
+      .phone-select.active .ph-select.active::after {
+        transform: rotate(180deg); }
+      .phone-select.active .ph-select p {
+        color: #000;
+        font-family: "Open Sans";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        cursor: pointer; }
+  .phone-select .ph-select {
+    display: flex;
+    gap: 10px;
+    align-items: center; }
+    .phone-select .ph-select.active::after {
+      transform: rotate(180deg); }
+    .phone-select .ph-select p {
+      color: #FFF;
+      font-family: "Open Sans";
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      cursor: pointer; }
+    .phone-select .ph-select::after {
+      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6.96967 9.21967C7.26256 8.92678 7.73743 8.92678 8.03033 9.21967L12 13.1893L15.9697 9.21967C16.2625 8.92678 16.7374 8.92678 17.0303 9.21967C17.3232 9.51256 17.3232 9.98743 17.0303 10.2803L12.5303 14.7803C12.2374 15.0732 11.7626 15.0732 11.4697 14.7803L6.96967 10.2803C6.67678 9.98743 6.67678 9.51256 6.96967 9.21967Z' fill='%23C09E93'/%3E%3C/svg%3E");
+      display: block;
+      transition: .3s ease; }
+  .phone-select .phone-select-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    padding: 0 15px 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 11;
+    gap: 10px;
+    border-radius: 0 0 3px 3px;
+    background: #FFF;
+    box-shadow: 0px 6px 11px 0px rgba(0, 0, 0, 0.05);
+    display: none; }
+    .phone-select .phone-select-wrapper.active {
+      display: flex; }
+    .phone-select .phone-select-wrapper a {
+      color: #22272A;
+      font-family: "Open Sans";
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      display: inline;
+      width: unset;
+      height: unset; }
+      .phone-select .phone-select-wrapper a:hover {
+        color: var(--green); }
+
 /*# sourceMappingURL=styles.css.map */
