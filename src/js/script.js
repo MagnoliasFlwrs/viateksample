@@ -25,26 +25,121 @@ overlay?.addEventListener('click' , ()=> {
 })
 
 const phoneSelect = document.querySelector('.phone-select .header-phones');
-const phoneSelectWrap = document.querySelector('.phone-select');
+const phoneSelectWraps = document.querySelectorAll('.phone-select');
 
-console.log(phoneSelectWrap)
 
-if (phoneSelect) {
+phoneSelectWraps?.forEach(phoneSelectWrap => {
+    const phoneSelect = phoneSelectWrap.querySelector('.header-phones');
     phoneSelect.addEventListener('click' , (e)=> {
         e.stopPropagation()
         let currentSelectWrap = e.target.closest('.phone-select');
         let currentSelectBody = currentSelectWrap.querySelector('.phone-select-wrapper');
         currentSelectBody.classList.toggle('active');
         phoneSelect.classList.toggle('active');
-        phoneSelectWrap.classList.toggle('active');
+        currentSelectWrap.classList.toggle('active');
     })
     document.addEventListener('click', (e)=> {
         let lists = document.querySelectorAll('.phone-select-wrapper.active')
+
         if (!e.target.closest('.phone-select') && lists){
             lists.forEach(el=> {
                 el.classList.remove('active');
-                phoneSelectWrap.classList.remove('active');
+                let currentSelectWrap = el.closest('.phone-select');
+                let currentSelectPhoneSelect = currentSelectWrap.querySelector('.header-phones');
+                console.log(currentSelectWrap)
+                currentSelectWrap.classList.remove('active');
+                currentSelectPhoneSelect.classList.remove('active');
             })
         }
     })
+})
+
+
+// logo-svg animation
+
+
+const animatedLogo = document.querySelector('.animated-svg');
+const gradient1 = document.getElementById('paint0_linear_2007_495');
+const gradient2 = document.getElementById('paint2_linear_2007_495');
+const gradient3 = document.getElementById('paint1_linear_2007_495');
+
+
+animatedLogo.addEventListener('mouseover', () => {
+    const animate = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+    animate.setAttribute('attributeName', 'x1');
+    animate.setAttribute('from', '-320.394');
+    animate.setAttribute('to', '-100');
+    animate.setAttribute('dur', '0.3s');
+    animate.setAttribute('fill', 'freeze');
+    gradient1.appendChild(animate);
+    animate.beginElement();
+});
+
+animatedLogo.addEventListener('mouseout', () => {
+    const animate = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+    animate.setAttribute('attributeName', 'x1');
+    animate.setAttribute('from', '-100');
+    animate.setAttribute('to', '-320.394');
+    animate.setAttribute('dur', '0.3s');
+    animate.setAttribute('fill', 'freeze');
+    gradient1.appendChild(animate);
+    animate.beginElement();
+});
+
+animatedLogo.addEventListener('mouseover', () => {
+    const animate = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+    animate.setAttribute('attributeName', 'x1');
+    animate.setAttribute('from', '-243.556');
+    animate.setAttribute('to', '0');
+    animate.setAttribute('dur', '0.3s');
+    animate.setAttribute('fill', 'freeze');
+    gradient2.appendChild(animate);
+    animate.beginElement();
+});
+
+animatedLogo.addEventListener('mouseout', () => {
+    const animate = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+    animate.setAttribute('attributeName', 'x1');
+    animate.setAttribute('from', '0');
+    animate.setAttribute('to', '-243.556');
+    animate.setAttribute('dur', '0.3s');
+    animate.setAttribute('fill', 'freeze');
+    gradient2.appendChild(animate);
+    animate.beginElement();
+});
+
+animatedLogo.addEventListener('mouseover', () => {
+    const animate = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+    animate.setAttribute('attributeName', 'x1');
+    animate.setAttribute('from', '-310.394');
+    animate.setAttribute('to', '100');
+    animate.setAttribute('dur', '0.3s');
+    animate.setAttribute('fill', 'freeze');
+    gradient3.appendChild(animate);
+    animate.beginElement();
+});
+
+animatedLogo.addEventListener('mouseout', () => {
+    const animate = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+    animate.setAttribute('attributeName', 'x1');
+    animate.setAttribute('from', '100');
+    animate.setAttribute('to', '-310.394');
+    animate.setAttribute('dur', '0.3s');
+    animate.setAttribute('fill', 'freeze');
+    gradient3.appendChild(animate);
+    animate.beginElement();
+});
+
+
+const servicesSwiper = document.querySelector('.services-swiper');
+
+if (servicesSwiper) {
+    const swiper = new Swiper(servicesSwiper, {
+        slidesPerView:5,
+        spaceBetween: 40,
+        loop: true,
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+    });
 }
