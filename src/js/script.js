@@ -135,11 +135,38 @@ const servicesSwiper = document.querySelector('.services-swiper');
 
 if (servicesSwiper) {
     const swiper = new Swiper(servicesSwiper, {
-        slidesPerView:5,
-        spaceBetween: 40,
+        slidesPerView:1.3,
+        spaceBetween: 20,
         loop: true,
         scrollbar: {
-            el: '.swiper-scrollbar',
+            el: '.custom-swiper-scrollbar',
         },
+        breakpoints: {
+            500: {
+                direction: 'horizontal',
+                slidesPerView: 1.5,
+                spaceBetween: 20
+            },
+            590: {
+                direction: 'horizontal',
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+            830: {
+                direction: 'horizontal',
+                slidesPerView: 3,
+                spaceBetween: 30
+            },
+            1150: {
+                direction: 'horizontal',
+                slidesPerView: 4,
+                spaceBetween: 30
+            },
+            1250: {
+                direction: 'horizontal',
+                slidesPerView: 5,
+                spaceBetween: 40
+            }
+        }
     });
 }
