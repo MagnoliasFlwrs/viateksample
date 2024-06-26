@@ -341,10 +341,12 @@ const closeModal = (modal) => {
 
 }
 
+const documentsModal = document.querySelector('.documents-modal');
 const newsSingleModal = document.querySelector('.news-single-modal');
 const contactsModal = document.querySelector('.contacts-modal');
 const showNewsSingleModalBtns = document.querySelectorAll('.news-card');
 const showContactsModalBtns =  document.querySelectorAll('.show-contacts-modal');
+const showDocumentsModalBtns =  document.querySelectorAll('.show-documents-modal');
 
 showNewsSingleModalBtns?.forEach(el=> {
     el.addEventListener('click' , (e) => {
@@ -360,3 +362,41 @@ showContactsModalBtns?.forEach(el=> {
         closeModal(contactsModal);
     })
 })
+
+showDocumentsModalBtns?.forEach(el=> {
+    el.addEventListener('click' , (e) => {
+        e.preventDefault();
+        showModal(documentsModal);
+        closeModal(documentsModal);
+    })
+})
+
+
+// gallery-modal
+const galleryModal = document.querySelector('.gallery-modal');
+const galleryModalImage = document.querySelector('.gallery-body .gallery-img img');
+const galleryModalCloseBtn = document.querySelector('.gallery-modal .close-modal span');
+const galleryThumbs = document.querySelectorAll('.gallery-content');
+
+function showGalleryModal() {
+    galleryThumbs.forEach(el=> {
+        el.addEventListener('click' , ()=> {
+            galleryModalImage.src = el.closest('.gallery-content').querySelector('img').src;
+            galleryModal.classList.add('open');
+            overlay.classList.add('open');
+        })
+    })
+}
+function closeGalleryModal() {
+    galleryModalCloseBtn.addEventListener('click' , ()=> {
+        galleryModal.classList.remove('open');
+        overlay.classList.remove('open');
+    })
+    overlay.addEventListener('click' , ()=> {
+        galleryModal.classList.remove('open');
+        overlay.classList.remove('open');
+    })
+}
+
+showGalleryModal();
+closeGalleryModal();
